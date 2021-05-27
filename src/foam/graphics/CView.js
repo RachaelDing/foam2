@@ -1274,13 +1274,13 @@ foam.CLASS({
     {
       name: 'context',
       factory: function() {
-        return this.el().getContext('2d');
+        return this.el().then(el => el.getContext('2d'));
       }
     },
     {
       name: 'context3D',
       factory: function() {
-        return this.el().getContext('webgl');
+        return this.el().then(el => el.getContext('webgl'));
       }
     },
     {
@@ -1311,8 +1311,9 @@ foam.CLASS({
       this.cview$.valueSub('invalidated', this.paint);
     },
 
-    function erase() {
-      this.el().width = this.el().width;
+    async function erase() {
+      var el = await this.el();
+      el.width = el.width;
     }
   ],
 

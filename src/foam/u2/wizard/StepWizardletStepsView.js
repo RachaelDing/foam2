@@ -264,9 +264,9 @@ foam.CLASS({
           }
         }
 
-        var padding = this.childNodes[0].childNodes[0].el().offsetTop;
-        var scrollTop = this.childNodes[0].childNodes[currI].el().offsetTop;
-        this.parentNode.el().scrollTop = scrollTop - padding;
+        var padding = this.childNodes[0].childNodes[0].el().then(el => el.offsetTop);
+        var scrollTop = this.childNodes[0].childNodes[currI].el().then(el => el.offsetTop);
+        this.parentNode.el().then(el => el.scrollTop = scrollTop - padding);
       }
     }
   ]

@@ -61,7 +61,6 @@ foam.CLASS({
         if ( o === n || this.feedback_ ) return;
 
         this.feedback_ = true;
-
         try {
           if ( ! n && this.placeholder ) {
             this.data  = this.defaultValue;
@@ -157,7 +156,11 @@ foam.CLASS({
     {
       class: 'foam.u2.ViewSpec',
       name: 'selectSpec',
-      value: { class: 'foam.u2.tag.Select' }
+      value: { class: 'foam.u2.tag.Select' },
+      postSet: function(o, n) {
+        console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
+        console.log(n);
+      }
     },
     {
       class: 'Boolean',
